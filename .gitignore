@@ -1,0 +1,12 @@
+# Environments
+server/.env
+server/.venv
+server/env/
+server/venv/
+server/ENV/
+server/env.bak/
+server/venv.bak/
+
+server/.idea
+client/.idea
+client/node_modules
