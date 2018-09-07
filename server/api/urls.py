@@ -20,7 +20,10 @@ from rest_framework import routers
 
 from report_app.views import PointViewSet
 
+# letting urls work with or without / at the end
 router = routers.DefaultRouter(trailing_slash=False)
+
+# adding point routes
 router.register('points', PointViewSet, base_name='point')
 # router.register('point-ranges', PointRangeViewSet, base_name='point-range')
 

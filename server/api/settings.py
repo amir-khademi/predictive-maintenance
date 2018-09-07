@@ -24,8 +24,10 @@ SECRET_KEY = 'x(bz6%x)$a9@t5w^mzz_tfp*7*rj(zry+0=a&15&nr(nza)_=^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# allowing connections from server (VPS)
 ALLOWED_HOSTS = ['31.184.132.36']
 
+# allowing connections from localhost on different ports
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -38,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'report_app.apps.ReportAppConfig',
-    'rest_framework',
-    'corsheaders'
+    'rest_framework',  # rest framework added to project for creating nice restful APIs
+    'corsheaders'  # allowing connections from localhost on different ports
 ]
 
 MIDDLEWARE = [
@@ -50,8 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # allowing connections from localhost on different ports
+    'django.middleware.common.CommonMiddleware',  # allowing connections from localhost on different ports
 ]
 
 ROOT_URLCONF = 'api.urls'
@@ -78,6 +80,7 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# define database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -124,6 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# adding pagination to django rest framework
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100
