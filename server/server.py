@@ -67,7 +67,7 @@ def save():
                         processed_data.append(Point(value=data, datetime=timezone.now()))
                         # processed_data.append(data)
                         # Point.objects.create(value=data)
-                        # print(data)
+                        print(data)
             else:  # second kind of packets
                 # print('last byte of 501 bytes packets (packet number) ', received_data[500])
                 for i in range(0, 500):
@@ -78,8 +78,8 @@ def save():
                         processed_data.append(Point(value=data, datetime=timezone.now()))
                         # processed_data.append(data)
                         # Point.objects.create(value=data)
-                        # print(data)
-            print(processed_data)
+                        print(data)
+            # print(processed_data)
             # aList = [Point(value=val, datetime = time) for val, time in processed_data]
             # print(aList)
 
