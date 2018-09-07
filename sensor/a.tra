@@ -1,0 +1,30 @@
+*** Creating Trace Output File 'a.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"startup_lpc17xx.o"'
+### List of Objects: adding '"core_cm3.o"'
+### List of Objects: adding '"system_lpc17xx.o"'
+### List of Objects: adding '"lpc17xx_clkpwr.o"'
+### List of Objects: adding '"lpc17xx_libcfg_default.o"'
+### List of Objects: adding '"lpc17xx_pinsel.o"'
+### List of Objects: adding '"lpc17xx_uart.o"'
+### List of Objects: adding '"lpc17xx_gpio.o"'
+### List of Objects: adding '"lpc17xx_timer.o"'
+### List of Objects: adding '"lpc17xx_adc.o"'
+### List of Objects: adding '"source.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "startup_lpc17xx.o" "core_cm3.o" "system_lpc17xx.o" "lpc17xx_clkpwr.o" "lpc17xx_libcfg_default.o" "lpc17xx_pinsel.o" "lpc17xx_uart.o" "lpc17xx_gpio.o" "lpc17xx_timer.o" "lpc17xx_adc.o" "source.o" 
+--strict --scatter "a.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\a.map" -o a.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'a.axf'
+### ADS-LD Command File: 'a.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'a.lnp', Handle=0x000004F0
+### Writing '.lnp' file
+### ADS-LD Command file 'a.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

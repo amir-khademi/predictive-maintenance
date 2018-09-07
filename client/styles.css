@@ -1,0 +1,20 @@
+body {
+    padding: 20px;
+}
+
+#chart_container {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#demo_chart {
+    position: relative;
+    left: 100px;
+}
+
+#y_axis {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+}

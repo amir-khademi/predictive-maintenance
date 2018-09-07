@@ -1,0 +1,88 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\In-Process\Master Thesis\Project\w1 shahrivar\New folder (2)\ESP8266_khademi - v3\a.uvproj
+Project File Date:  08/21/2018
+
+<h2>Output:</h2>
+Rebuild target 'Target 1'
+assembling startup_LPC17xx.s...
+compiling core_cm3.c...
+compiling system_LPC17xx.c...
+compiling lpc17xx_clkpwr.c...
+compiling lpc17xx_libcfg_default.c...
+compiling lpc17xx_pinsel.c...
+compiling lpc17xx_uart.c...
+compiling lpc17xx_gpio.c...
+compiling lpc17xx_timer.c...
+CMSIS_Driver-Core\library\lpc17xx_timer.c(115): warning:  #68-D: integer conversion resulted in a change of sign
+compiling lpc17xx_adc.c...
+compiling source.c...
+source.c(388): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+source.c(393): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+source.c(423): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+source.c(438): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+source.c(443): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+source.c(462): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+source.c(72): warning:  #177-D: variable "EspTx" was declared but never referenced
+linking...
+Program Size: Code=10612 RO-data=2336 RW-data=3556 ZI-data=6044  
+FromELF: creating hex file...
+"a.axf" - 0 Error(s), 8 Warning(s).
+Load "G:\\In-Process\\Master Thesis\\Project\\w1 shahrivar\\New folder (2)\\ESP8266_khademi - v3\\a.AXF" 
+Set JLink Project File to "G:\In-Process\Master Thesis\Project\w1 shahrivar\New folder (2)\ESP8266_khademi - v3\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.54a, compiled Sep 17 2012 15:58:45
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 58004321 
+Feature(s) : RDI, FlashBP, FlashDL, JFlash, GDB 
+ 
+* JLink Info: TotalIRLen = ?, IRPrint = 0x..000000000000000000000000
+Load "G:\\In-Process\\Master Thesis\\Project\\w1 shahrivar\\New folder (2)\\ESP8266_khademi - v3\\a.AXF" 
+Set JLink Project File to "G:\In-Process\Master Thesis\Project\w1 shahrivar\New folder (2)\ESP8266_khademi - v3\JLinkSettings.ini"
+* JLink Info: Device "LPC1768" selected (512 KB flash, 32 KB RAM).
+ 
+JLink info:
+------------
+DLL: V4.54a, compiled Sep 17 2012 15:58:45
+Firmware: J-Link ARM V8 compiled Nov 14 2012 22:34:52
+Hardware: V8.00
+S/N : 58004321 
+Feature(s) : RDI, FlashBP, FlashDL, JFlash, GDB 
+ 
+* JLink Info: TotalIRLen = 4, IRPrint = 0x01
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+ 
+Target info:
+------------
+Device: LPC1768
+VTarget = 3.202V
+State of Pins: 
+TCK: 1, TDI: 0, TDO: 1, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 2000 kHz
+ 
+Full Chip Erase Done.
+Programming Done.
+Verify OK.
+* JLink Info: Found Cortex-M3 r2p0, Little endian.
+* JLink Info: TPIU fitted.
+* JLink Info: ETM fitted.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+Application running ...

@@ -1,0 +1,95 @@
+Dependencies for Project 'a', Target 'Target 1': (DO NOT MODIFY !)
+F (.\CMSIS_Driver-Core\startup\arm\startup_LPC17xx.s)(0x4DD11AEA)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx --list ".\startup_LPC17xx.lst" --xref -o "startup_LPC17xx.o" --depend "startup_LPC17xx.d")
+F (.\CMSIS_Driver-Core\core & system\core_cm3.c)(0x4DD11AEA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "core_cm3.o" --omf_browse "core_cm3.crf" --depend "core_cm3.d")
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+F (.\CMSIS_Driver-Core\core & system\system_LPC17xx.c)(0x5B7ECACC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "system_lpc17xx.o" --omf_browse "system_lpc17xx.crf" --depend "system_lpc17xx.d")
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (CMSIS_Driver-Core\core & system\LPC17xx.h)(0x4E394236)
+I (CMSIS_Driver-Core\core & system\core_cm3.h)(0x4E394236)
+I (CMSIS_Driver-Core\core & system\core_cmInstr.h)(0x4DD11AEA)
+I (CMSIS_Driver-Core\core & system\core_cmFunc.h)(0x4DD11AEA)
+I (CMSIS_Driver-Core\core & system\system_LPC17xx.h)(0x4DD11AEA)
+F (.\CMSIS_Driver-Core\library\lpc17xx_clkpwr.c)(0x4E0085DE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_clkpwr.o" --omf_browse "lpc17xx_clkpwr.crf" --depend "lpc17xx_clkpwr.d")
+I (CMSIS_Driver-Core\library\lpc17xx_clkpwr.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+F (.\CMSIS_Driver-Core\library\lpc17xx_libcfg_default.c)(0x4E0085DE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_libcfg_default.o" --omf_browse "lpc17xx_libcfg_default.crf" --depend "lpc17xx_libcfg_default.d")
+I (CMSIS_Driver-Core\library\lpc17xx_libcfg_default.h)(0x4E394238)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+F (.\CMSIS_Driver-Core\library\lpc17xx_pinsel.c)(0x4E0085DE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_pinsel.o" --omf_browse "lpc17xx_pinsel.crf" --depend "lpc17xx_pinsel.d")
+I (CMSIS_Driver-Core\library\lpc17xx_pinsel.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\lpc17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+F (.\CMSIS_Driver-Core\library\lpc17xx_uart.c)(0x4E394236)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_uart.o" --omf_browse "lpc17xx_uart.crf" --depend "lpc17xx_uart.d")
+I (CMSIS_Driver-Core\library\lpc17xx_uart.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (CMSIS_Driver-Core\library\lpc17xx_clkpwr.h)(0x4E394238)
+I (CMSIS_Driver-Core\library\lpc17xx_libcfg_default.h)(0x4E394238)
+F (.\CMSIS_Driver-Core\library\lpc17xx_gpio.c)(0x4E0085DE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_gpio.o" --omf_browse "lpc17xx_gpio.crf" --depend "lpc17xx_gpio.d")
+I (CMSIS_Driver-Core\library\lpc17xx_gpio.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (CMSIS_Driver-Core\library\lpc17xx_libcfg_default.h)(0x4E394238)
+F (.\CMSIS_Driver-Core\library\lpc17xx_timer.c)(0x4E0085DE)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_timer.o" --omf_browse "lpc17xx_timer.crf" --depend "lpc17xx_timer.d")
+I (CMSIS_Driver-Core\library\lpc17xx_timer.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (CMSIS_Driver-Core\library\lpc17xx_clkpwr.h)(0x4E394238)
+I (CMSIS_Driver-Core\library\lpc17xx_pinsel.h)(0x4E394238)
+I (CMSIS_Driver-Core\library\lpc17xx_libcfg_default.h)(0x4E394238)
+F (.\CMSIS_Driver-Core\library\lpc17xx_adc.c)(0x4E394236)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "lpc17xx_adc.o" --omf_browse "lpc17xx_adc.crf" --depend "lpc17xx_adc.d")
+I (CMSIS_Driver-Core\library\lpc17xx_adc.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (CMSIS_Driver-Core\library\lpc17xx_clkpwr.h)(0x4E394238)
+I (CMSIS_Driver-Core\library\lpc17xx_libcfg_default.h)(0x4E394238)
+F (.\source.c)(0x5B8E974F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I.\CMSIS_Driver-Core\library -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\NXP\LPC17xx -o "source.o" --omf_browse "source.crf" --depend "source.d")
+I (.\CMSIS_Driver-Core\library\lpc17xx_uart.h)(0x4E394238)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x4FF53204)
+I (C:\Keil\ARM\CMSIS\Include\core_cm3.h)(0x50065ABA)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x4EB111CC)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x50598DC4)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x4FDAC594)
+I (C:\Keil\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x4F5876BA)
+I (.\CMSIS_Driver-Core\library\lpc_types.h)(0x4E0085E0)
+I (.\CMSIS_Driver-Core\library\lpc17xx_pinsel.h)(0x4E394238)
+I (.\CMSIS_Driver-Core\library\lpc17xx_gpio.h)(0x4E394238)
+I (.\CMSIS_Driver-Core\library\lpc17xx_timer.h)(0x4E394238)
+I (.\CMSIS_Driver-Core\library\lpc17xx_clkpwr.h)(0x4E394238)
+I (.\CMSIS_Driver-Core\library\lpc17xx_adc.h)(0x4E394238)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdio.h)(0x4EB111CE)
+I (C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h)(0x4EB111CC)
+I (C:\Keil\ARM\ARMCC\bin\..\include\string.h)(0x4EB111CE)
+I (C:\Keil\ARM\ARMCC\bin\..\include\math.h)(0x4EB111D0)
