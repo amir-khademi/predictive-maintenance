@@ -1,8 +1,11 @@
+// Variable Initialization
 let api = 'http://31.184.132.36:8888/api/points';
 let points = [];
 let offset = 0;
+let timeout = 100;
+let window_size = 2000;
 
-// CanvasJS
+// CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
     data: [{
         type: "line",
@@ -12,10 +15,10 @@ let chart = new CanvasJS.Chart('chart_container', {
     axisX: [{
         tickLength: 0,
         lineThickness: 0,
+        margin: -5,
         labelFormatter: function (e) {
             return "";
         },
-        margin: -5
     }, {
         // viewportMinimum: 0,
         // viewportMaximum: 5,
@@ -27,17 +30,24 @@ let chart = new CanvasJS.Chart('chart_container', {
     },
 });
 
-fetch(api + '?offset=' + offset + '&limit=1').then(response => {
-    return response.json();
-}).then(data => {
-    offset = data.count;
-    dummy();
-}).catch(err => {
-    console.log(err)
-});
 
-function fetchData() {
-    fetch(api + '?offset=' + offset + '&limit=1000000').then(response => {
+// Get the count of points in the database
+// to make it the start point for plotting the chart
+const getPointsCount = () => {
+    fetch(createURL(0, 1)).then(response => {
+        return response.json();
+    }).then(data => {
+        offset = data.count;
+        wait(timeout);
+    }).catch(err => {
+        console.log(err)
+    });
+};
+
+
+// Fetch data from database periodically, process them and plot the chart
+const fetchDataAndPlot = () => {
+    fetch(createURL(offset, 1000000)).then(response => {
         return response.json();
     }).then(data => {
         for (point of data.results) {
@@ -49,19 +59,28 @@ function fetchData() {
                 x: parseInt(point.id),
                 y: parseInt(point.value)
             });
-            if (points.length > 1000) {
+            if (points.length > window_size) {
                 points.shift();
             }
         }
         chart.render();
         offset += data.results.length;
-        // offset += 2000;
-        dummy();
+        wait(timeout);
     }).catch(err => {
         console.log(err)
     })
-}
+};
 
-function dummy() {
-    setTimeout(fetchData, 200)
-}
+
+// creates a complete API URL
+const createURL = (offset, limit) => {
+    return api + '?offset=' + offset + '&limit=' + limit;
+};
+
+
+// wait for a specific duration
+const wait = (duration) => {
+    setTimeout(fetchDataAndPlot, duration)
+};
+
+getPointsCount();
