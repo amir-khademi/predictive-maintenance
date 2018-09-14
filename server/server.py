@@ -52,7 +52,7 @@ def save():
             # we receive two kind of packets, first with 510 bytes of data and the second with 501 bytes
             # this is a limitation from sensor hardware so I need to handle it here
             if len(received_data) > 501:  # first kind of packets
-                # print('last byte of 510 bytes packets (packet number) ', received_data[509])
+                print('last byte of 510 bytes packets (packet number) ', received_data[509])
                 for i in range(0, 509):
                     # each two bytes (16 bit) creates one point
                     # each point is a 4 char number from 0 to 4096
@@ -67,7 +67,7 @@ def save():
                         processed_data.append(Point(value=data, datetime=timezone.now()))
                         # processed_data.append(data)
                         # Point.objects.create(value=data)
-                        print(data)
+                        # print(data)
             else:  # second kind of packets
                 # print('last byte of 501 bytes packets (packet number) ', received_data[500])
                 for i in range(0, 500):
@@ -78,7 +78,7 @@ def save():
                         processed_data.append(Point(value=data, datetime=timezone.now()))
                         # processed_data.append(data)
                         # Point.objects.create(value=data)
-                        print(data)
+                        # print(data)
             # print(processed_data)
             # aList = [Point(value=val, datetime = time) for val, time in processed_data]
             # print(aList)

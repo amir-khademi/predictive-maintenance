@@ -1,9 +1,9 @@
 // Variable Initialization
-let api = 'http://31.184.132.36:8888/api/points';
+let api = 'http://31.184.132.12:8888/api/points';
 let points = [];
 let offset = 0;
 let timeout = 100;
-let window_size = 2000;
+let window_size = 300;
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
@@ -25,8 +25,8 @@ let chart = new CanvasJS.Chart('chart_container', {
         // interval: 1,
     }],
     axisY: {
-        minimum: 0,
-        maximum: 4096
+        minimum: 1500,
+        maximum: 2000
     },
 });
 

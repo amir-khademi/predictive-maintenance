@@ -25,7 +25,7 @@ SECRET_KEY = 'x(bz6%x)$a9@t5w^mzz_tfp*7*rj(zry+0=a&15&nr(nza)_=^'
 DEBUG = True
 
 # allowing connections from server (VPS)
-ALLOWED_HOSTS = ['31.184.132.36']
+ALLOWED_HOSTS = ['31.184.132.12']
 
 # allowing connections from localhost on different ports
 CORS_ORIGIN_ALLOW_ALL = True
