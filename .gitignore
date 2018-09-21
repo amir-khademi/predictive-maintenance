@@ -10,4 +10,3 @@ server/venv.bak/
 server/.idea
 client/.idea
 client/node_modules
-client/libs

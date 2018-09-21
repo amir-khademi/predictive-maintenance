@@ -6,13 +6,16 @@ let timeout = 100;
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
+    title: {
+        text: "Spectrum (Domain-Frequency)"
+    },
     data: [{
         type: "line",
         dataPoints: points,
     }],
     axisY: {
-        minimum: -300,
-        maximum: 300
+        minimum: -500,
+        maximum: 500
     },
 });
 
@@ -36,23 +39,19 @@ const fetchDataAndPlot = () => {
     fetch(createURL(offset, 1000000)).then(response => {
         return response.json();
     }).then(data => {
-        let tmp = [];
-        tmp.length = 0;
+        let values = [];
+        values.length = 0;
         for (point of data.results) {
-            tmp.push(point.value)
+            values.push(point.value)
         }
-        let fft = new ComplexArray(tmp);
-        console.log('complex array', fft);
+        let fft = new ComplexArray(values);
         fft.FFT();
-        console.log('fft', fft);
-        console.log('points1', points)
-        fft.forEach((c_value, i) => {
+        fft.forEach((value, i) => {
             points.push({
                 x: i,
-                y: c_value.imag
+                y: value.imag
             });
         });
-        console.log('points2', points)
         chart.render();
         for (let j = 0; j < 10000; j++) {
             points.shift()
@@ -78,6 +77,10 @@ const wait = (duration) => {
 
 getPointsCount();
 
+
+////////////////////////////////////////////////////////////////////////////////
+//              FFT Classes and Functions
+//         credit : https://github.com/dntj/jsfft
 ////////////////////////////////////////////////////////////////////////////////
 class baseComplexArray {
     constructor(other, arrayType = Float32Array) {

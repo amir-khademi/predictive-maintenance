@@ -7,6 +7,9 @@ let window_size = 300;
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
+    title: {
+        text: "Waveform (Domain-Time)"
+    },
     data: [{
         type: "line",
         dataPoints: points,
