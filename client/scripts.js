@@ -25,11 +25,10 @@ let chart = new CanvasJS.Chart('chart_container', {
         // interval: 1,
     }],
     axisY: {
-        minimum: 1500,
+        minimum: 1400,
         maximum: 2000
     },
 });
-
 
 // Get the count of points in the database
 // to make it the start point for plotting the chart
