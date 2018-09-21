@@ -1,0 +1,42 @@
+{
+  "name": "jsfft",
+  "version": "0.0.3",
+  "author": "Nick Jones",
+  "description": "A lightweight FFT implementation for Javascript",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dntj/jsfft.git"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "main": "./dist/fft",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "babel -d dist/ lib/",
+    "clean": "rm -rf dist",
+    "prepublish": "npm run build",
+    "test": "mocha --compilers js:babel-register"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.22.0",
+    "mocha": ">=1.1.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dntj/jsfft/issues"
+  },
+  "homepage": "https://github.com/dntj/jsfft#readme",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {}
+}
