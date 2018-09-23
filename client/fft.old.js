@@ -2,8 +2,7 @@
 let api = 'http://31.184.132.12:8888/api/points';
 let points = [];
 let offset = 0;
-let timeout = 1000;
-let dataLength = 0;
+let timeout = 100;
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
@@ -14,15 +13,10 @@ let chart = new CanvasJS.Chart('chart_container', {
         type: "line",
         dataPoints: points,
     }],
-    axisX: [{
-        labelFormatter: function (e) {
-            return parseInt((e.value * 2500) / dataLength);
-        },
-    }],
-    axisY: {
-        minimum: -1,
-        maximum: 2
-    },
+    // axisY: {
+    //     minimum: -500,
+    //     maximum: 500
+    // },
 });
 
 
@@ -45,20 +39,10 @@ const fetchDataAndPlot = () => {
     fetch(createURL(offset, 1000000)).then(response => {
         return response.json();
     }).then(data => {
-        dataLength = data.results.length;
         let values = [];
-        let tmp_values = [];
         values.length = 0;
         for (point of data.results) {
-            tmp_values.push(point.value)
-            // values.push(point.value-2048)
-        }
-        var avg = tmp_values.reduce(function (p, c, i, a) {
-            return p + (c / a.length)
-        }, 0);
-        console.log(avg);
-        for (point of data.results) {
-            values.push(point.value - avg)
+            values.push(point.value - 1862)
             // values.push(point.value-2048)
         }
         let fft = new ComplexArray(values);
@@ -67,15 +51,9 @@ const fetchDataAndPlot = () => {
         fft.forEach((value, i) => {
             points.push({
                 x: i,
-                y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length)) * 2
+                y: Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))
             });
         });
-        // let half_length = Math.ceil(points.length / 2);
-        // points = points.splice(half_length,points.length);
-        // let half = [];
-        // for (let k = 0; k < points.length / 2; k++) {
-        //     half[k] = points[k];
-        // }
         chart.render();
         for (let j = 0; j < 50000; j++) {
             points.shift()
