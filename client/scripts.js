@@ -4,26 +4,37 @@ let points = [];
 let offset = 0;
 let timeout = 100;
 let window_size = 1000;
-let minY = -5;
-let maxY = +5;
+let minY = -1; // max -5
+let maxY = +1; // max +5
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
     title: {
-        text: "Waveform (Domain-Time)"
+        text: "Waveform"
     },
+    subtitles: [
+        {
+            text: "Domain-Time",
+            fontSize: 15
+        }
+    ],
+    animationEnabled: true,
+    zoomEnabled: true,
+    theme: "light2",
     data: [{
         type: "line",
         dataPoints: points,
         // xValueType: "dateTime",
+        lineThickness: 1
     }],
     axisX: [{
         tickLength: 0,
-        lineThickness: 0,
-        margin: -5,
+        // lineThickness: 0,
+        // margin: -5,
         labelFormatter: function (e) {
             return "";
         },
+        title: "Time (index)"
     }, {
         // viewportMinimum: 0,
         // viewportMaximum: 5,
@@ -31,7 +42,11 @@ let chart = new CanvasJS.Chart('chart_container', {
     }],
     axisY: {
         minimum: minY,
-        maximum: maxY
+        maximum: maxY,
+        title: "Amplitude (G)",
+        gridThickness: 1,
+        gridDashType: "dash",
+        gridColor: "lightgrey"
     },
 });
 

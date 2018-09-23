@@ -13,21 +13,36 @@ let temp_signal = [];
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
     title: {
-        text: "Spectrum (Domain-Frequency)"
+        text: "Spectrum"
     },
+    subtitles: [
+        {
+            text: "Domain-Frequency",
+            fontSize: 15
+        }
+    ],
+    animationEnabled: true,
+    zoomEnabled: true,
+    theme: "light2",
     data: [{
         type: "line",
         dataPoints: points,
+        lineThickness: 1,
     }],
     axisX: [{
         labelFormatter: function (e) {
             return parseInt((e.value * sampling_rate) / dataLength); // converting x axis to frequency
             // return e.value; // default
         },
+        title: "Frequency (Hz)"
     }],
     axisY: {
         minimum: minY,
-        maximum: maxY
+        maximum: maxY,
+        title: "Amplitude (G)",
+        gridThickness: 1,
+        gridDashType: "dash",
+        gridColor: "lightgrey"
     },
 });
 

@@ -1,3 +1,7 @@
 #chart_container {
     width: 100%;
 }
+
+body {
+    font-family: calibri, Tahoma, serif;
+}
