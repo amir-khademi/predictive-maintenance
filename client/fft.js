@@ -4,6 +4,11 @@ let points = [];
 let offset = 0;
 let timeout = 1000;
 let dataLength = 0;
+let sampling_rate = 2500;
+let minY = -1;
+let maxY = 2;
+let signal = [];
+let temp_signal = [];
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
@@ -16,18 +21,19 @@ let chart = new CanvasJS.Chart('chart_container', {
     }],
     axisX: [{
         labelFormatter: function (e) {
-            return parseInt((e.value * 2500) / dataLength);
+            return parseInt((e.value * sampling_rate) / dataLength); // converting x axis to frequency
+            // return e.value; // default
         },
     }],
     axisY: {
-        minimum: -1,
-        maximum: 2
+        minimum: minY,
+        maximum: maxY
     },
 });
 
 
 // Get the count of points in the database
-// to make it the start point for plotting the chart
+// to make it the start point for plotting the chart (real-time)
 const getPointsCount = () => {
     fetch(createURL(0, 1)).then(response => {
         return response.json();
@@ -46,40 +52,46 @@ const fetchDataAndPlot = () => {
         return response.json();
     }).then(data => {
         dataLength = data.results.length;
-        let values = [];
-        let tmp_values = [];
-        values.length = 0;
+        // empty the variables for the next round
+        signal = [];
+        signal.length = 0;
+        temp_signal = [];
+        temp_signal.length = 0;
+
+        // getting only values from the results to create a signal
         for (point of data.results) {
-            tmp_values.push(point.value)
-            // values.push(point.value-2048)
+            temp_signal.push(point.value)
         }
-        var avg = tmp_values.reduce(function (p, c, i, a) {
+
+        // calculate the average of signal
+        let avg = temp_signal.reduce(function (p, c, i, a) {
             return p + (c / a.length)
         }, 0);
-        console.log(avg);
+
+        // removing the DC component by minus the average from all the signal members
         for (point of data.results) {
-            values.push(point.value - avg)
-            // values.push(point.value-2048)
+            signal.push(point.value - avg)
         }
-        let fft = new ComplexArray(values);
+
+        // calculate the FFT
+        // credit : https://github.com/dntj/jsfft
+        let fft = new ComplexArray(signal);
         fft.FFT();
-        console.log(fft);
         fft.forEach((value, i) => {
             points.push({
                 x: i,
+                // calculating Amplitude-Units-Peak (Apk) factor for Y axis
+                // read more here : https://sooeet.com/math/online-fft-calculator.php
                 y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length)) * 2
             });
         });
-        // let half_length = Math.ceil(points.length / 2);
-        // points = points.splice(half_length,points.length);
-        // let half = [];
-        // for (let k = 0; k < points.length / 2; k++) {
-        //     half[k] = points[k];
-        // }
         chart.render();
+
+        // empty the chart for the next round
         for (let j = 0; j < 50000; j++) {
             points.shift()
         }
+
         offset += data.results.length;
         wait(timeout);
     }).catch(err => {
