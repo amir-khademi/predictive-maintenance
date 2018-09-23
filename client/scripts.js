@@ -3,7 +3,9 @@ let api = 'http://31.184.132.12:8888/api/points';
 let points = [];
 let offset = 0;
 let timeout = 100;
-let window_size = 300;
+let window_size = 1000;
+let minY = -5;
+let maxY = +5;
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
@@ -28,10 +30,11 @@ let chart = new CanvasJS.Chart('chart_container', {
         // interval: 1,
     }],
     axisY: {
-        minimum: 1400,
-        maximum: 2000
+        minimum: minY,
+        maximum: maxY
     },
 });
+
 
 // Get the count of points in the database
 // to make it the start point for plotting the chart
@@ -59,7 +62,7 @@ const fetchDataAndPlot = () => {
             // });
             points.push({
                 x: parseInt(point.id),
-                y: parseInt(point.value)
+                y: parseFloat(calculate_g(point.value))
             });
             if (points.length > window_size) {
                 points.shift();
@@ -83,6 +86,13 @@ const createURL = (offset, limit) => {
 // wait for a specific duration
 const wait = (duration) => {
     setTimeout(fetchDataAndPlot, duration)
+};
+
+const calculate_g = (row_sensor_data) => {
+    let volt = (row_sensor_data * 3.3) / 4096;
+    let signed_g = volt / 0.3;
+    let unsigned_g = (volt - 1.65) / 0.3;
+    return unsigned_g;
 };
 
 getPointsCount();
