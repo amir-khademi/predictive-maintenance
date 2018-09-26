@@ -5,3 +5,19 @@
 body {
     font-family: calibri, Tahoma, serif;
 }
+
+.title {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.subtitle {
+    text-align: center;
+    color: darkgrey;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+.toolbox {
+    position: absolute;
+}

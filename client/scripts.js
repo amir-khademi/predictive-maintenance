@@ -46,7 +46,13 @@ let chart = new CanvasJS.Chart('chart_container', {
         title: "Amplitude (G)",
         gridThickness: 1,
         gridDashType: "dash",
-        gridColor: "lightgrey"
+        gridColor: "lightgrey",
+        stripLines: [
+            {
+                value: 0,
+                color: "lightgrey"
+            }
+        ]
     },
 });
 
