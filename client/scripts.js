@@ -4,8 +4,8 @@ let points = [];
 let offset = 0;
 let timeout = 100;
 let window_size = 1000;
-let minY = -1; // max -5
-let maxY = +1; // max +5
+let minY = -5; // max -5
+let maxY = +5; // max +5
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
@@ -108,6 +108,7 @@ const createURL = (offset, limit) => {
 const wait = (duration) => {
     setTimeout(fetchDataAndPlot, duration)
 };
+
 
 const calculate_g = (row_sensor_data) => {
     let volt = (row_sensor_data * 3.3) / 4096;

@@ -5,8 +5,8 @@ let offset = 0;
 let timeout = 1000;
 let dataLength = 0;
 let sampling_rate = 2500;
-let minY = -1;
-let maxY = 2;
+let minY = 0;
+let maxY = 0.2;
 let signal = [];
 let temp_signal = [];
 
@@ -97,7 +97,8 @@ const fetchDataAndPlot = () => {
                 x: i,
                 // calculating Amplitude-Units-Peak (Apk) factor for Y axis
                 // read more here : https://sooeet.com/math/online-fft-calculator.php
-                y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length)) * 2
+                // y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length))
+                y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length))
             });
         });
         chart.render();
@@ -124,6 +125,14 @@ const createURL = (offset, limit) => {
 // wait for a specific duration
 const wait = (duration) => {
     setTimeout(fetchDataAndPlot, duration)
+};
+
+
+const calculate_g = (row_sensor_data) => {
+    let volt = (row_sensor_data * 3.3) / 4096;
+    let signed_g = volt / 0.3;
+    let unsigned_g = (volt - 1.65) / 0.3;
+    return unsigned_g;
 };
 
 getPointsCount();
