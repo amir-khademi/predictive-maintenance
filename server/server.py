@@ -52,8 +52,9 @@ def save():
             # we receive two kind of packets, first with 510 bytes of data and the second with 501 bytes
             # this is a limitation from sensor hardware so I need to handle it here
             if len(received_data) > 501:  # first kind of packets
-                print('last byte of 510 bytes packets (packet number) ', received_data[509])
-                for i in range(0, 509):
+                print('last byte of 510 bytes packets (packet number) ', received_data[509],  received_data[508],  received_data[507],  received_data[506],  received_data[505],  received_data[504],  received_data[503],  received_data[502],  received_data[501],  received_data[500], received_data[499], received_data[498])
+                # for i in range(0, 509):
+                for i in range(0, 500):
                     # each two bytes (16 bit) creates one point
                     # each point is a 4 char number from 0 to 4096
                     # sensor has a 12 bit output (but hardware should send 16 bit, so we have 0 for first 4 bits)
@@ -61,6 +62,7 @@ def save():
                     if i % 2 == 0:
                         data = received_data[i] + (received_data[i + 1] * 256)
                         if data > 4096:
+                            print('noise data : ', data)
                             break
                         # now that we have a nice 4 char readable number which is our Point!
                         # we assign it to the Point model and then we append it to list of processed data
@@ -74,6 +76,7 @@ def save():
                     if i % 2 == 0:
                         data = received_data[i] + (received_data[i + 1] * 256)
                         if data > 4096:
+                            print('noise data : ', data)
                             break
                         processed_data.append(Point(value=data, datetime=timezone.now()))
                         # processed_data.append(data)
