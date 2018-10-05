@@ -6,7 +6,9 @@ let timeout = 1000;
 let dataLength = 0;
 let sampling_rate = 2500;
 let minY = 0;
-let maxY = 0.2;
+let maxY = 1;
+// let minX = 0;
+// let maxX = 2500;
 let signal = [];
 let temp_signal = [];
 
@@ -30,6 +32,8 @@ let chart = new CanvasJS.Chart('chart_container', {
         lineThickness: 1,
     }],
     axisX: [{
+        // minimum: minX,
+        // maximum: maxX,
         labelFormatter: function (e) {
             return parseInt((e.value * sampling_rate) / dataLength); // converting x axis to frequency
             // return e.value; // default
@@ -66,7 +70,7 @@ const fetchDataAndPlot = () => {
     fetch(createURL(offset, 1000000)).then(response => {
         return response.json();
     }).then(data => {
-        dataLength = data.results.length;
+        // dataLength = data.results.length;
         // empty the variables for the next round
         signal = [];
         signal.length = 0;
@@ -87,6 +91,37 @@ const fetchDataAndPlot = () => {
         for (point of data.results) {
             signal.push(point.value - avg)
         }
+        console.log('before ', signal.length);
+        if (signal.length < 1024) {
+            while (signal.length < 1024) {
+                signal.push(0);
+            }
+        } else if (signal.length < 2048) {
+            while (signal.length < 2048) {
+                signal.push(0);
+            }
+        } else if (signal.length < 4096) {
+            while (signal.length < 4096) {
+                signal.push(0);
+            }
+        } else if (signal.length < 8192) {
+            while (signal.length < 8192) {
+                signal.push(0);
+            }
+        } else if (signal.length < 16384) {
+            while (signal.length < 16384) {
+                signal.push(0);
+            }
+        } else if (signal.length < 32768) {
+            while (signal.length < 32768) {
+                signal.push(0);
+            }
+        }
+        else {
+            alert('fucked up');
+        }
+        console.log('after ', signal.length);
+        dataLength = signal.length;
 
         // calculate the FFT
         // credit : https://github.com/dntj/jsfft

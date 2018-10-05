@@ -8,7 +8,7 @@ from report_app.serializers import PointSerializer
 
 
 class PointViewSet(viewsets.ModelViewSet):
-    queryset = Point.objects.all()
+    queryset = Point.objects.all().order_by('id')
     serializer_class = PointSerializer
 
     # adding an action to clear the database

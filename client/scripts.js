@@ -4,8 +4,8 @@ let points = [];
 let offset = 0;
 let timeout = 100;
 let window_size = 1000;
-let minY = -5; // max -5
-let maxY = +5; // max +5
+let minY = -2; // max -5
+let maxY = +2; // max +5
 
 // CanvasJS chart initialize
 let chart = new CanvasJS.Chart('chart_container', {
