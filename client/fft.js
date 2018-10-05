@@ -3,7 +3,7 @@ let api = 'http://31.184.132.12:8888/api/points';
 let points = [];
 let offset = 0;
 let timeout = 1000;
-let dataLength = 0;
+let dataLength = 1;
 let sampling_rate = 2500;
 let minY = 0;
 let maxY = 1;
@@ -92,19 +92,20 @@ const fetchDataAndPlot = () => {
             signal.push(point.value - avg)
         }
         console.log('before ', signal.length);
-        if (signal.length < 1024) {
-            while (signal.length < 1024) {
-                signal.push(0);
-            }
-        } else if (signal.length < 2048) {
-            while (signal.length < 2048) {
-                signal.push(0);
-            }
-        } else if (signal.length < 4096) {
-            while (signal.length < 4096) {
-                signal.push(0);
-            }
-        } else if (signal.length < 8192) {
+        // if (signal.length < 1024) {
+        //     while (signal.length < 1024) {
+        //         signal.push(0);
+        //     }
+        // } else if (signal.length < 2048) {
+        //     while (signal.length < 2048) {
+        //         signal.push(0);
+        //     }
+        // } else if (signal.length < 4096) {
+        //     while (signal.length < 4096) {
+        //         signal.push(0);
+        //     }
+        // } else
+        if (signal.length < 8192) {
             while (signal.length < 8192) {
                 signal.push(0);
             }
@@ -136,10 +137,12 @@ const fetchDataAndPlot = () => {
                 y: ((Math.sqrt(Math.pow(value.imag, 2) + Math.pow(value.real, 2))) / (data.results.length))
             });
         });
-        chart.render();
+        if (data.results.length !== 0) {
+            chart.render();
+        }
 
         // empty the chart for the next round
-        for (let j = 0; j < 50000; j++) {
+        for (let j = 0; j < dataLength; j++) {
             points.shift()
         }
 
