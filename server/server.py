@@ -33,7 +33,7 @@ def receive():
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     server_socket.bind((HOST, PORT))  # assign host and port to socket
     server_socket.listen(1)  # just accepts one client since I have only one sensor
-    print("---- SERVER STARTEDddddddd ----")  # just tell that socket is ready and listening
+    print("---- SERVER STARTED ----")  # just tell that socket is ready and listening
     client_socket, (client_address, client_port) = server_socket.accept()  # accept client and save it's address + port
     print('request from ', str(client_address), ':', str(client_port))  # tell that someone connected to socket
     while True:  # always accept new data from client
@@ -61,11 +61,11 @@ def save():
             #     # print('last byte of 510 bytes packets (packet number) ', received_data[509],  received_data[508],  received_data[507],  received_data[506],  received_data[505],  received_data[504],  received_data[503],  received_data[502],  received_data[501],  received_data[500], received_data[499], received_data[498])
             #     # for i in range(0, 509):
             global first_packet, max_index, stored_data
-            if first_packet and packet_number == 9:
+            if first_packet:
                 first_packet = False
                 pass
             else:
-                print(packet_number)
+                # print(packet_number)
                 for i in range(0, 500):
                     # each two bytes (16 bit) creates one point
                     # each point is a 4 char number from 0 to 4096
