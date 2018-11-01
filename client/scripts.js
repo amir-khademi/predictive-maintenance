@@ -3,7 +3,7 @@ let api = 'http://31.184.132.12:8888/api/points';
 let points = [];
 let offset = 0;
 let timeout = 100;
-let window_size = 1000;
+let window_size = 350;
 let minY = -2; // max -5
 let maxY = +2; // max +5
 

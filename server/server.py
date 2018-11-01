@@ -78,7 +78,8 @@ def save():
                             break
                         # now that we have a nice 4 char readable number which is our Point!
                         # we assign it to the Point model and then we append it to list of processed data
-                        processed_data.append(Point(value=data, datetime=timezone.now()))
+                        # processed_data.append(Point(value=data, datetime=timezone.now()))
+                        processed_data.append(Point(value=data))
                         # processed_data.append(data)
                         # Point.objects.create(value=data)
                         # print(data)

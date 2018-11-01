@@ -3,7 +3,7 @@ from django.db import models
 
 class Point(models.Model):
     value = models.IntegerField()
-    datetime = models.DateTimeField()
+    # datetime = models.DateTimeField()
     # datetime = models.DateTimeField(auto_now_add=True)
 
 # class Pattern(models.Model):
