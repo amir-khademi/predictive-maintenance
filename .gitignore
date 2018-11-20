@@ -7,6 +7,16 @@ server/ENV/
 server/env.bak/
 server/venv.bak/
 
+machine-learning/.env
+machine-learning/.venv
+machine-learning/env/
+machine-learning/venv/
+machine-learning/ENV/
+machine-learning/env.bak/
+machine-learning/venv.bak/
+
+machine-learning/.idea
+
 server/.idea
 client/.idea
 client/node_modules
