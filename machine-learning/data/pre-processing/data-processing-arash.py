@@ -1,13 +1,13 @@
 import csv
 
-input_file_name = 'predict.csv'
-output_file_name = 'predict_output.csv'
-train_x_file_name = 'predict_x_train.csv'
-test_x_file_name = 'predict_x_test.csv'
-train_y_file_name = 'predict_y_train.csv'
-test_y_file_name = 'predict_y_test.csv'
-train_size = 40
-test_size = 15
+input_file_name = 'off.csv'
+output_file_name = 'off-output.csv'
+train_x_file_name = 'off-x-train.csv'
+test_x_file_name = 'off-x-test.csv'
+train_y_file_name = 'off-y-train.csv'
+test_y_file_name = 'off-y-test.csv'
+train_size = 2000
+test_size = 900
 window_size = 300
 
 with open(input_file_name, newline='') as my_input, open(output_file_name, 'w', newline='') as my_output:
@@ -37,9 +37,9 @@ with open(output_file_name, newline='') as my_input, \
 with open(train_y_file_name, 'w', newline='') as y_output:
     writer = csv.writer(y_output)
     for i in range(0, train_size):
-        writer.writerow('3')
+        writer.writerow('1')
 
 with open(test_y_file_name, 'w', newline='') as y_output:
     writer = csv.writer(y_output)
     for i in range(0, test_size):
-        writer.writerow('3')
+        writer.writerow('1')

@@ -81,6 +81,7 @@ const fetchDataAndPlot = () => {
             //     x: new Date(point.datetime),
             //     y: parseInt(point.value)
             // });
+            document.getElementById('status').innerHTML = point.predicted_category;
             points.push({
                 x: parseInt(point.id),
                 y: parseFloat(calculate_g(point.value))

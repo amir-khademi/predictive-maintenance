@@ -3,7 +3,9 @@ import socket
 import queue
 import threading
 import os
+from predict.predict_neural_network import DenseNN
 from django.utils import timezone
+from collections import Counter
 
 # adding Django settings to this python file to work properly inside a Django project
 # since this file is a pure python and can work stand-alone
@@ -14,14 +16,6 @@ application = get_wsgi_application()
 
 # importing models
 from report_app.models import Point
-
-# initialize variables
-HOST = "0.0.0.0"  # open to the world!
-PORT = 7777  # just a random port
-buffer = queue.Queue()  # consider a queue for data
-max_index = -1
-first_packet = True
-stored_data = [-1] * 10
 
 
 # receive data from sensor and add it to a buffer
@@ -66,23 +60,22 @@ def save():
                 pass
             else:
                 # print(packet_number)
-                for i in range(0, 500):
+                for i in range(0, 500, 2):
                     # each two bytes (16 bit) creates one point
                     # each point is a 4 char number from 0 to 4096
                     # sensor has a 12 bit output (but hardware should send 16 bit, so we have 0 for first 4 bits)
                     # below I create a  point from 2 bytes
-                    if i % 2 == 0:
-                        data = received_data[i] + (received_data[i + 1] * 256)
-                        if data > 4096:
-                            print('noise data : ', data)
-                            break
-                        # now that we have a nice 4 char readable number which is our Point!
-                        # we assign it to the Point model and then we append it to list of processed data
-                        # processed_data.append(Point(value=data, datetime=timezone.now()))
-                        processed_data.append(Point(value=data))
-                        # processed_data.append(data)
-                        # Point.objects.create(value=data)
-                        # print(data)
+                    data = received_data[i] + (received_data[i + 1] * 256)
+                    if data > 4096:
+                        print('noise data : ', data)
+                        break
+                    # now that we have a nice 4 char readable number which is our Point!
+                    # we assign it to the Point model and then we append it to list of processed data
+                    # processed_data.append(Point(value=data, datetime=timezone.now()))
+                    processed_data.append(data)
+                    # processed_data.append(data)
+                    # Point.objects.create(value=data)
+                    # print(data)
                 # print(processed_data[0].value)
                 if packet_number >= 0 and packet_number <= max_index:
                     for i, data in enumerate(stored_data):
@@ -91,10 +84,13 @@ def save():
                             while stored_data[prv_index] == -1:
                                 prv_index -= 1
                             stored_data[i] = stored_data[prv_index]
-                    abc = []
-                    for data in stored_data:
-                        abc.extend(data)
-                    Point.objects.bulk_create(abc)  # insert processed data list to the database
+                    predicted = model.predict(stored_data)
+                    cnt = Counter(predicted)
+                    most_label, repeated = cnt.most_common(1)[0]
+                    print(predicted)
+                    Point.objects.bulk_create(
+                        [Point(value=stored_data[i][j], predicted_category=most_label) for i in range(10) for j in
+                         range(250)])  # insert processed data list to the database
 
                     stored_data = [-1] * 10
                     max_index = -1
@@ -103,6 +99,15 @@ def save():
                     max_index = max(max_index, packet_number)
                     stored_data[packet_number] = processed_data.copy()
 
+
+# initialize variables
+HOST = "0.0.0.0"  # open to the world!
+PORT = 7777  # just a random port
+buffer = queue.Queue()  # consider a queue for data
+max_index = -1
+first_packet = True
+stored_data = [-1] * 10
+model = DenseNN(250, 3)
 
 # our program has two threads, one for receiving data and one for saving it to database
 receive_thread = threading.Thread(target=receive)

@@ -3,6 +3,7 @@ from django.db import models
 
 class Point(models.Model):
     value = models.IntegerField()
+    predicted_category=models.IntegerField(default=-1)
     # datetime = models.DateTimeField()
     # datetime = models.DateTimeField(auto_now_add=True)
 
